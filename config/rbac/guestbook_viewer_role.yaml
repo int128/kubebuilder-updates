@@ -1,0 +1,20 @@
+# permissions for end users to view guestbooks.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: guestbook-viewer-role
+rules:
+- apiGroups:
+  - webapp.int128.github.io
+  resources:
+  - guestbooks
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - webapp.int128.github.io
+  resources:
+  - guestbooks/status
+  verbs:
+  - get
