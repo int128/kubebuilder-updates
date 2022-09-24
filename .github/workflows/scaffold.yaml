@@ -1,0 +1,30 @@
+name: scaffold
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - .github/workflows/scaffold.yaml
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - uses: int128/go-actions/setup@v1
+        with:
+          go-version: 1.19.1
+
+      # https://book.kubebuilder.io/quick-start.html#installation
+      - run: |
+          curl -L -o kubebuilder https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)
+          chmod +x kubebuilder && mv kubebuilder /usr/local/bin/
+
+      - run: rm -vfr PROJECT api config controllers hack Makefile Dockerfile .*ignore go.* *.go
+
+      - run: kubebuilder init --domain int128.github.io --repo int128.github.io/hello-kubebuilder
+      - run: kubebuilder create api --group webapp --version v1 --kind Guestbook
+      - run: make test
+
+      - uses: int128/update-generated-files-action@v2
