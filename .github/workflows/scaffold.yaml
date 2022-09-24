@@ -6,11 +6,13 @@ on:
     paths:
       - .github/workflows/scaffold.yaml
   push:
+    branches:
+      - main
     paths:
       - .github/workflows/scaffold.yaml
 
 env:
-  KUBEBUILDER_VERSION: v3.5.0
+  KUBEBUILDER_VERSION: v3.6.0
 
 jobs:
   create:
