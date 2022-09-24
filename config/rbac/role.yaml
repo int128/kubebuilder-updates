@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - webapp.int128.github.io
+  resources:
+  - guestbooks
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - webapp.int128.github.io
+  resources:
+  - guestbooks/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - webapp.int128.github.io
+  resources:
+  - guestbooks/status
+  verbs:
+  - get
+  - patch
+  - update
