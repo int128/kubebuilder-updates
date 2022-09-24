@@ -1,2 +1,3 @@
 # hello-kubebuilder
-Hello world with kubebuilder
+
+This repository is scaffold with the latest version of kubebuilder.
