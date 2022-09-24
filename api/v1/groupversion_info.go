@@ -15,8 +15,8 @@ limitations under the License.
 */
 
 // Package v1 contains API Schema definitions for the webapp v1 API group
-//+kubebuilder:object:generate=true
-//+groupName=webapp.int128.github.io
+// +kubebuilder:object:generate=true
+// +groupName=webapp.int128.github.io
 package v1
 
 import (
