@@ -1,6 +1,6 @@
 # hello-kubebuilder [![scaffold](https://github.com/int128/hello-kubebuilder/actions/workflows/scaffold.yaml/badge.svg)](https://github.com/int128/hello-kubebuilder/actions/workflows/scaffold.yaml)
 
-This repository contains scaffold with the following versions of kubebuilder.
+This repository contains scaffold with the following versions of [kubebuilder](https://github.com/kubernetes-sigs/kubebuilder).
 
 - kubebuilder v3.7.0
 - kubebuilder v3.6.0
