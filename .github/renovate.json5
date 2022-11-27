@@ -3,6 +3,10 @@
   "extends": [
     "config:base",
   ],
+  "gomod": {
+    // do not update the scaffold output
+    "enabled": false,
+  },
   "regexManagers": [
     {
       "fileMatch": ["^\\.github/workflows/.*\\.ya?ml$"],
