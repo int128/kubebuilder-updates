@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+  ],
+  "gomod": {
+    // do not update the scaffold output
+    "enabled": false,
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["^\\.github/workflows/.*\\.ya?ml$"],
+      "matchStrings": ['KUBEBUILDER_VERSION: (?<currentValue>.*)\\n'],
+      "depNameTemplate": "kubernetes-sigs/kubebuilder",
+      "datasourceTemplate": "github-releases",
+    },
+  ],
+}
