@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/name: guestbook
     app.kubernetes.io/instance: guestbook-sample
     app.kubernetes.io/part-of: hello-kubebuilder
-    app.kuberentes.io/managed-by: kustomize
+    app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/created-by: hello-kubebuilder
   name: guestbook-sample
 spec:
