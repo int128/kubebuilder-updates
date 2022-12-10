@@ -2,9 +2,27 @@
 
 This repository contains scaffold with the following versions of [kubebuilder](https://github.com/kubernetes-sigs/kubebuilder).
 
+- kubebuilder v3.8.0
 - kubebuilder v3.7.0
 - kubebuilder v3.6.0
 - kubebuilder v3.5.0
+
+## Upgrade from kubebuilder v3.7.0 to v3.8.0
+
+See the diff from https://github.com/int128/hello-kubebuilder/pull/10/commits/eb5b02fb29ba1d15f5655447077e3d7af8fd1423.
+
+To apply the patch to your repository,
+
+```sh
+# fetch the diff
+git fetch https://github.com/int128/hello-kubebuilder eb5b02fb29ba1d15f5655447077e3d7af8fd1423
+
+# apply the patch
+git checkout -b upgrade-kubebuilder-v3.8.0
+git cherry-pick eb5b02fb29ba1d15f5655447077e3d7af8fd1423
+```
+
+You need to resolve the conflicts.
 
 ## Upgrade from kubebuilder v3.6.0 to v3.7.0
 
