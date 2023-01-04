@@ -7,6 +7,7 @@
   // do not update the scaffold output
   "enabledManagers": [
     "regex",
+    "github-actions",
   ],
   "regexManagers": [
     {
