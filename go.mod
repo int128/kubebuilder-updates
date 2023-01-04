@@ -1,4 +1,4 @@
-module int128.github.io/hello-kubebuilder
+module int128.github.io/kubebuilder-updates
 
 go 1.19
 

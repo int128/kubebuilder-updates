@@ -6,8 +6,8 @@ metadata:
     app.kubernetes.io/name: namespace
     app.kubernetes.io/instance: system
     app.kubernetes.io/component: manager
-    app.kubernetes.io/created-by: hello-kubebuilder
-    app.kubernetes.io/part-of: hello-kubebuilder
+    app.kubernetes.io/created-by: kubebuilder-updates
+    app.kubernetes.io/part-of: kubebuilder-updates
     app.kubernetes.io/managed-by: kustomize
   name: system
 ---
@@ -21,8 +21,8 @@ metadata:
     app.kubernetes.io/name: deployment
     app.kubernetes.io/instance: controller-manager
     app.kubernetes.io/component: manager
-    app.kubernetes.io/created-by: hello-kubebuilder
-    app.kubernetes.io/part-of: hello-kubebuilder
+    app.kubernetes.io/created-by: kubebuilder-updates
+    app.kubernetes.io/part-of: kubebuilder-updates
     app.kubernetes.io/managed-by: kustomize
 spec:
   selector:

@@ -31,8 +31,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	webappv1 "int128.github.io/hello-kubebuilder/api/v1"
-	"int128.github.io/hello-kubebuilder/controllers"
+	webappv1 "int128.github.io/kubebuilder-updates/api/v1"
+	"int128.github.io/kubebuilder-updates/controllers"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -71,7 +71,7 @@ func main() {
 		Port:                   9443,
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "57432cb0.int128.github.io",
+		LeaderElectionID:       "5a35196e.int128.github.io",
 		// LeaderElectionReleaseOnCancel defines if the leader should step down voluntarily
 		// when the Manager ends. This requires the binary to immediately end when the
 		// Manager is stopped, otherwise, this setting is unsafe. Setting this significantly

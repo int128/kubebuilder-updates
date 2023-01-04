@@ -24,7 +24,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	webappv1 "int128.github.io/hello-kubebuilder/api/v1"
+	webappv1 "int128.github.io/kubebuilder-updates/api/v1"
 )
 
 // GuestbookReconciler reconciles a Guestbook object
