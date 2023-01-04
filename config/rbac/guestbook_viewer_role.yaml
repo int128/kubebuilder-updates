@@ -6,8 +6,8 @@ metadata:
     app.kubernetes.io/name: clusterrole
     app.kubernetes.io/instance: guestbook-viewer-role
     app.kubernetes.io/component: rbac
-    app.kubernetes.io/created-by: hello-kubebuilder
-    app.kubernetes.io/part-of: hello-kubebuilder
+    app.kubernetes.io/created-by: kubebuilder-updates
+    app.kubernetes.io/part-of: kubebuilder-updates
     app.kubernetes.io/managed-by: kustomize
   name: guestbook-viewer-role
 rules:

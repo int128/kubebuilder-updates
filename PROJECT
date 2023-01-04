@@ -1,8 +1,8 @@
 domain: int128.github.io
 layout:
 - go.kubebuilder.io/v3
-projectName: hello-kubebuilder
-repo: int128.github.io/hello-kubebuilder
+projectName: kubebuilder-updates
+repo: int128.github.io/kubebuilder-updates
 resources:
 - api:
     crdVersion: v1
@@ -11,6 +11,6 @@ resources:
   domain: int128.github.io
   group: webapp
   kind: Guestbook
-  path: int128.github.io/hello-kubebuilder/api/v1
+  path: int128.github.io/kubebuilder-updates/api/v1
   version: v1
 version: "3"
