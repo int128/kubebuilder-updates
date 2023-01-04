@@ -31,8 +31,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	webappv1 "int128.github.io/hello-kubebuilder/api/v1"
-	"int128.github.io/hello-kubebuilder/controllers"
+	webappv1 "int128.github.io/kubebuilder-updates/api/v1"
+	"int128.github.io/kubebuilder-updates/controllers"
 	//+kubebuilder:scaffold:imports
 )
 

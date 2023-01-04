@@ -33,7 +33,7 @@ jobs:
 
       - run: go version
       - run: kubebuilder version
-      - run: kubebuilder init --domain int128.github.io --repo int128.github.io/hello-kubebuilder
+      - run: kubebuilder init --domain int128.github.io --repo int128.github.io/kubebuilder-updates
       - run: kubebuilder create api --group webapp --version v1 --kind Guestbook --controller --resource
       - run: make test
 

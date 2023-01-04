@@ -1,4 +1,4 @@
-# hello-kubebuilder [![scaffold](https://github.com/int128/hello-kubebuilder/actions/workflows/scaffold.yaml/badge.svg)](https://github.com/int128/hello-kubebuilder/actions/workflows/scaffold.yaml)
+# kubebuilder-updates [![scaffold](https://github.com/int128/kubebuilder-updates/actions/workflows/scaffold.yaml/badge.svg)](https://github.com/int128/kubebuilder-updates/actions/workflows/scaffold.yaml)
 
 This repository contains scaffold with the following versions of [kubebuilder](https://github.com/kubernetes-sigs/kubebuilder).
 
@@ -9,13 +9,13 @@ This repository contains scaffold with the following versions of [kubebuilder](h
 
 ## Upgrade from kubebuilder v3.7.0 to v3.8.0
 
-See the diff from https://github.com/int128/hello-kubebuilder/pull/10/commits/eb5b02fb29ba1d15f5655447077e3d7af8fd1423.
+See the diff from https://github.com/int128/kubebuilder-updates/pull/10/commits/eb5b02fb29ba1d15f5655447077e3d7af8fd1423.
 
 To apply the patch to your repository,
 
 ```sh
 # fetch the diff
-git fetch https://github.com/int128/hello-kubebuilder eb5b02fb29ba1d15f5655447077e3d7af8fd1423
+git fetch https://github.com/int128/kubebuilder-updates eb5b02fb29ba1d15f5655447077e3d7af8fd1423
 
 # apply the patch
 git checkout -b upgrade-kubebuilder-v3.8.0
@@ -26,13 +26,13 @@ You need to resolve the conflicts.
 
 ## Upgrade from kubebuilder v3.6.0 to v3.7.0
 
-See the diff from https://github.com/int128/hello-kubebuilder/pull/6/commits/15afba8bb4201076ea09a4761b1525185fa4ede0
+See the diff from https://github.com/int128/kubebuilder-updates/pull/6/commits/15afba8bb4201076ea09a4761b1525185fa4ede0
 
 To apply the patch to your repository,
 
 ```sh
 # fetch the diff
-git fetch https://github.com/int128/hello-kubebuilder 15afba8bb4201076ea09a4761b1525185fa4ede0
+git fetch https://github.com/int128/kubebuilder-updates 15afba8bb4201076ea09a4761b1525185fa4ede0
 
 # apply the patch
 git checkout -b upgrade-kubebuilder-v3.7.0
@@ -49,23 +49,23 @@ Run `go mod tidy` and make sure all imports have been replaced.
 ### Resource labels
 
 Since v3.7.0, the metadata labels are added to all resources.
-This patch contains an example name, so you need to replace `hello-kubebuilder` with your repository name.
+This patch contains an example name, so you need to replace `kubebuilder-updates` with your repository name.
 
 ```yaml
-    app.kubernetes.io/created-by: hello-kubebuilder
-    app.kubernetes.io/part-of: hello-kubebuilder
+    app.kubernetes.io/created-by: kubebuilder-updates
+    app.kubernetes.io/part-of: kubebuilder-updates
     app.kubernetes.io/managed-by: kustomize
 ```
 
 ## Upgrade from kubebuilder v3.5.0 to v3.6.0
 
-See the diff from https://github.com/int128/hello-kubebuilder/pull/4/commits/e7921bbe47a5c309811c13441905af24b4a86dbe
+See the diff from https://github.com/int128/kubebuilder-updates/pull/4/commits/e7921bbe47a5c309811c13441905af24b4a86dbe
 
 To apply the patch to your repository,
 
 ```sh
 # fetch the diff
-git fetch https://github.com/int128/hello-kubebuilder e7921bbe47a5c309811c13441905af24b4a86dbe
+git fetch https://github.com/int128/kubebuilder-updates e7921bbe47a5c309811c13441905af24b4a86dbe
 
 # apply the patch
 git checkout -b upgrade-kubebuilder-v3.6.0
