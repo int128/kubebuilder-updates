@@ -1,12 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
+    "github>int128/renovate-base",
+    "github>int128/go-actions",
   ],
-  "gomod": {
-    // do not update the scaffold output
-    "enabled": false,
-  },
+  // do not update the scaffold output
+  "enabledManagers": [
+    "regex",
+  ],
   "regexManagers": [
     {
       "fileMatch": ["^\\.github/workflows/.*\\.ya?ml$"],
