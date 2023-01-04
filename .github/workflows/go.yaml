@@ -10,7 +10,7 @@ on:
       - controllers/**.go
   push:
     branches:
-      - master
+      - main
     paths:
       - .github/workflows/go.yaml
       - go.*
