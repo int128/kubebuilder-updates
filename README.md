@@ -7,6 +7,35 @@ It is continuously updated by Renovate and GitHub Actions.
 
 You can upgrade your code using the patches in this repository.
 
+### Upgrade from kubebuilder v3.8.0 to v3.9.0
+
+See the diff from https://github.com/int128/kubebuilder-updates/pull/21/commits/262e86755e5382e6bc2ea0666da622a764112416.
+
+To apply the patch to your repository,
+
+```sh
+# fetch the diff
+git fetch https://github.com/int128/kubebuilder-updates 262e86755e5382e6bc2ea0666da622a764112416
+
+# apply the patch
+git checkout -b upgrade-kubebuilder-v3.9.0
+git cherry-pick 262e86755e5382e6bc2ea0666da622a764112416
+
+# remove samples
+git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml controllers/guestbook_controller.go
+
+# exclude go deps
+git reset -- go.mod go.sum
+git checkout -- go.mod go.sum
+```
+
+You may need to resolve conflicts.
+
+```sh
+git commit -m 'Upgrade from kubebuilder v3.8.0 to v3.9.0'
+gh pr create -f
+```
+
 ### Upgrade from kubebuilder v3.7.0 to v3.8.0
 
 See the diff from https://github.com/int128/kubebuilder-updates/pull/10/commits/eb5b02fb29ba1d15f5655447077e3d7af8fd1423.
