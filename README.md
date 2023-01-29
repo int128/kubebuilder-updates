@@ -51,10 +51,19 @@ git checkout -b upgrade-kubebuilder-v3.8.0
 git cherry-pick eb5b02fb29ba1d15f5655447077e3d7af8fd1423
 
 # remove samples
-git rm config/samples/webapp_v1_guestbook.yaml controllers/guestbook_controller.go
+git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml controllers/guestbook_controller.go
+
+# exclude go deps
+git reset -- go.mod go.sum
+git checkout -- go.mod go.sum
 ```
 
 You may need to resolve conflicts.
+
+```sh
+git commit -m 'Upgrade from kubebuilder v3.7.0 to v3.8.0'
+gh pr create -f
+```
 
 ### Upgrade from kubebuilder v3.6.0 to v3.7.0
 
