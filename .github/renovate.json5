@@ -3,6 +3,7 @@
   "extends": [
     "github>int128/renovate-base",
     "github>int128/go-renovate-config",
+    "github>int128/go-renovate-config:github-actions",
   ],
   // do not update the scaffold output
   "enabledManagers": [
