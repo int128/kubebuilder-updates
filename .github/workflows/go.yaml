@@ -19,41 +19,8 @@ on:
       - controllers/**.go
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-go@v3
-        with:
-          go-version: 1.20.1
-          cache: true
-      - uses: golangci/golangci-lint-action@v3
-        with:
-          version: v1.51.1
-          args: --timeout=3m
-
-  tidy:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
-      - uses: actions/setup-go@v3
-        with:
-          go-version: 1.20.1
-          cache: true
-      - run: go mod tidy
-      - uses: int128/update-generated-files-action@v2
-
-  test:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-go@v3
-        with:
-          go-version: 1.20.1
-          cache: true
-      - run: make test
+  go:
+    uses: int128/kubebuilder-workflows/.github/workflows/go.yaml@v1
+    with:
+      go-version: 1.20.1
+      golangci-lint-version: v1.51.1
