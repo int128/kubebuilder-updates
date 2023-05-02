@@ -5,18 +5,14 @@ on:
     paths:
       - .github/workflows/go.yaml
       - go.*
-      - main.go
-      - api/**.go
-      - controllers/**.go
+      - '**/*.go'
   push:
     branches:
       - main
     paths:
       - .github/workflows/go.yaml
       - go.*
-      - main.go
-      - api/**.go
-      - controllers/**.go
+      - '**/*.go'
 
 jobs:
   go:
