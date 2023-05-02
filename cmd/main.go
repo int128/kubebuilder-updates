@@ -32,7 +32,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	webappv1 "int128.github.io/kubebuilder-updates/api/v1"
-	"int128.github.io/kubebuilder-updates/controllers"
+	"int128.github.io/kubebuilder-updates/internal/controller"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -89,7 +89,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controllers.GuestbookReconciler{
+	if err = (&controller.GuestbookReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
