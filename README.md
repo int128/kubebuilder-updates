@@ -22,14 +22,20 @@ git checkout -b upgrade-kubebuilder-v3.10.0
 git cherry-pick a27a7e31065143cd59fc85dd65185050430e0572
 
 # remove samples
-git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml controllers/guestbook_controller.go
+git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml internal/controller/guestbook_controller.go
 
 # exclude go deps
 git reset -- go.mod go.sum
 git checkout -- go.mod go.sum
 ```
 
-You may need to resolve conflicts.
+You need to resolve conflicts, e.g.,
+
+- Move `controllers` -> `internal/controller`
+- Rename package `controllers` -> `controller`
+- Project Layout is changed to `go.kubebuilder.io/v4`
+
+See https://book.kubebuilder.io/migration/manually_migration_guide_gov3_to_gov4.html for details.
 
 ```sh
 git commit -m 'Upgrade from kubebuilder v3.9.0 to v3.10.0'
