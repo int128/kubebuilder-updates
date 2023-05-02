@@ -1,0 +1,13 @@
+name: manifest
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - config/**
+      - .github/workflows/manifest.yaml
+
+jobs:
+  manifest:
+    uses: int128/kubebuilder-workflows/.github/workflows/manifest.yaml@v1
