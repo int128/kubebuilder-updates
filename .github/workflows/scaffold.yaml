@@ -28,7 +28,21 @@ jobs:
           curl -L -o kubebuilder https://github.com/kubernetes-sigs/kubebuilder/releases/download/${KUBEBUILDER_VERSION}/kubebuilder_$(go env GOOS)_$(go env GOARCH)
           chmod +x kubebuilder && mv kubebuilder /usr/local/bin/
 
-      - run: rm -vfr PROJECT api config controllers bin hack e2e_test Makefile Dockerfile .*ignore go.* *.go
+      - name: Remove old files
+        run: |
+          rm -vfr \
+            PROJECT \
+            api \
+            cmd \
+            config \
+            internal \
+            bin \
+            hack \
+            e2e_test \
+            Makefile \
+            Dockerfile \
+            .*ignore \
+            go.*
 
       - run: go version
       - run: kubebuilder version
