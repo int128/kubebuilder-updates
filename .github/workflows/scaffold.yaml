@@ -12,7 +12,7 @@ on:
       - .github/workflows/scaffold.yaml
 
 env:
-  KUBEBUILDER_VERSION: v3.11.0
+  KUBEBUILDER_VERSION: v3.11.1
 
 jobs:
   create:
