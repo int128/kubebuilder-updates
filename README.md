@@ -7,6 +7,59 @@ It is continuously updated by Renovate and GitHub Actions.
 
 You can upgrade your code using the patches in this repository.
 
+### Upgrade from kubebuilder v3.11.0 to v3.11.1
+
+See the diff from
+https://github.com/int128/kubebuilder-updates/pull/47/commits/8eeb003e4d95440ff42b2df7c15b136023d5ec25
+
+To apply the patches to your repository,
+
+```sh
+# fetch the diff
+git fetch https://github.com/int128/kubebuilder-updates 8eeb003e4d95440ff42b2df7c15b136023d5ec25
+
+# apply the patch
+git checkout -b upgrade-kubebuilder-v3.11.1
+git cherry-pick 8eeb003e4d95440ff42b2df7c15b136023d5ec25
+```
+
+You may need to resolve conflicts.
+
+```
+git commit -m 'Upgrade from kubebuilder v3.11.0 to v3.11.1'
+gh pr create -f
+```
+
+### Upgrade from kubebuilder v3.10.0 to v3.11.0
+
+See the diff from
+https://github.com/int128/kubebuilder-updates/pull/46/commits/68121dd3a586fd9e8fb2c1063075176b6a3d111e.
+
+To apply the patches to your repository,
+
+```sh
+# fetch the diff
+git fetch https://github.com/int128/kubebuilder-updates 68121dd3a586fd9e8fb2c1063075176b6a3d111e
+
+# apply the patch
+git checkout -b upgrade-kubebuilder-v3.11.1
+git cherry-pick 68121dd3a586fd9e8fb2c1063075176b6a3d111e
+
+# remove samples
+git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml internal/controller/guestbook_controller.go
+
+# exclude go deps
+git reset -- go.mod go.sum
+git checkout -- go.mod go.sum
+```
+
+You may need to resolve conflicts.
+
+```
+git commit -m 'Upgrade from kubebuilder v3.10.0 to v3.11.0'
+gh pr create -f
+```
+
 ### Upgrade from kubebuilder v3.9.0 to v3.10.0
 
 See the diff from https://github.com/int128/kubebuilder-updates/pull/38/commits/a27a7e31065143cd59fc85dd65185050430e0572.
