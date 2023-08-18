@@ -42,11 +42,12 @@ To apply the patches to your repository,
 git fetch https://github.com/int128/kubebuilder-updates 68121dd3a586fd9e8fb2c1063075176b6a3d111e
 
 # apply the patch
-git checkout -b upgrade-kubebuilder-v3.11.1
+git checkout -b upgrade-kubebuilder-v3.11.0
 git cherry-pick 68121dd3a586fd9e8fb2c1063075176b6a3d111e
 
 # remove samples
-git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml internal/controller/guestbook_controller.go
+git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml
+git rm internal/controller/guestbook_controller.go
 
 # exclude go deps
 git reset -- go.mod go.sum
@@ -75,7 +76,8 @@ git checkout -b upgrade-kubebuilder-v3.10.0
 git cherry-pick a27a7e31065143cd59fc85dd65185050430e0572
 
 # remove samples
-git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml internal/controller/guestbook_controller.go
+git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml
+git rm internal/controller/guestbook_controller.go
 
 # exclude go deps
 git reset -- go.mod go.sum
@@ -110,7 +112,8 @@ git checkout -b upgrade-kubebuilder-v3.9.0
 git cherry-pick 262e86755e5382e6bc2ea0666da622a764112416
 
 # remove samples
-git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml controllers/guestbook_controller.go
+git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml
+git rm controllers/guestbook_controller.go
 
 # exclude go deps
 git reset -- go.mod go.sum
@@ -139,7 +142,8 @@ git checkout -b upgrade-kubebuilder-v3.8.0
 git cherry-pick eb5b02fb29ba1d15f5655447077e3d7af8fd1423
 
 # remove samples
-git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml controllers/guestbook_controller.go
+git rm config/crd/bases/webapp.int128.github.io_guestbooks.yaml
+git rm controllers/guestbook_controller.go
 
 # exclude go deps
 git reset -- go.mod go.sum
@@ -168,7 +172,8 @@ git checkout -b upgrade-kubebuilder-v3.7.0
 git cherry-pick 15afba8bb4201076ea09a4761b1525185fa4ede0
 
 # remove samples
-git rm config/samples/webapp_v1_guestbook.yaml controllers/guestbook_controller.go
+git rm config/samples/webapp_v1_guestbook.yaml
+git rm controllers/guestbook_controller.go
 ```
 
 You may need to resolve conflicts.
@@ -204,7 +209,8 @@ git checkout -b upgrade-kubebuilder-v3.6.0
 git cherry-pick e7921bbe47a5c309811c13441905af24b4a86dbe
 
 # remove samples
-git rm config/samples/webapp_v1_guestbook.yaml controllers/guestbook_controller.go
+git rm config/samples/webapp_v1_guestbook.yaml
+git rm controllers/guestbook_controller.go
 ```
 
 You may need to resolve conflicts.
