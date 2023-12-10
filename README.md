@@ -7,6 +7,26 @@ It is continuously updated by Renovate and GitHub Actions.
 
 You can upgrade your code using the patches in this repository.
 
+### Upgrade from kubebuilder v3.11.1 to v3.12.0
+
+To apply the patch of https://github.com/int128/kubebuilder-updates/pull/56/commits/e503579de20924f51d2d5970346044cf29e43ab7,
+
+```sh
+# fetch the diff
+git fetch https://github.com/int128/kubebuilder-updates e503579de20924f51d2d5970346044cf29e43ab7
+
+# apply the patch
+git checkout -b upgrade-kubebuilder-v3.12.0
+git cherry-pick e503579de20924f51d2d5970346044cf29e43ab7
+```
+
+You may need to resolve conflicts.
+
+```sh
+git commit -m 'Upgrade from kubebuilder v3.11.1 to v3.12.0'
+gh pr create -f
+```
+
 ### Upgrade from kubebuilder v3.11.0 to v3.11.1
 
 See the diff from
