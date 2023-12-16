@@ -34,6 +34,11 @@ jobs:
         id: cache
         with:
           image: ghcr.io/${{ github.repository }}/cache
+      - uses: actions/cache@v3
+        with:
+          path: ../go-build-cache
+          key: go-build-cache-${{ runner.os }}-${{ hashFiles('**/go.sum') }}
+          restore-keys: go-build-cache-${{ runner.os }}-
       - uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -48,3 +53,4 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           cache-from: ${{ steps.cache.outputs.cache-from }}
           cache-to: ${{ steps.cache.outputs.cache-to }}
+          build-contexts: go-build-cache=../go-build-cache
