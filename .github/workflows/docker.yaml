@@ -1,26 +1,24 @@
 name: docker
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/docker.yaml
-      - Dockerfile
-      - go.*
-      - main.go
-      - api/**
-      - controllers/**
-    tags:
-      - v*
   pull_request:
     paths:
       - .github/workflows/docker.yaml
-      - Dockerfile
       - go.*
-      - main.go
-      - api/**
-      - controllers/**
+      - '**/*.go'
+      - Dockerfile
+      - Makefile
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+    paths:
+      - .github/workflows/docker.yaml
+      - go.*
+      - '**/*.go'
+      - Dockerfile
+      - Makefile
 
 jobs:
   build:
@@ -50,27 +48,3 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           cache-from: ${{ steps.cache.outputs.cache-from }}
           cache-to: ${{ steps.cache.outputs.cache-to }}
-
-  e2e-test:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v4
-      - run: make -C e2e_test cluster
-
-      - uses: docker/metadata-action@v5
-        id: metadata
-        with:
-          images: ghcr.io/${{ github.repository }}
-          # set outputs.tags to single tag
-          flavor: latest=false
-      - uses: int128/wait-for-docker-image-action@v1
-        with:
-          tags: ${{ steps.metadata.outputs.tags }}
-
-      - run: make -C e2e_test deploy
-        env:
-          CONTROLLER_IMAGE: ${{ steps.metadata.outputs.tags }}
-
-      - run: make -C e2e_test logs-controller
-        if: always()
