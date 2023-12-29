@@ -27,6 +27,10 @@ git commit -m 'Upgrade from kubebuilder v3.11.1 to v3.12.0'
 gh pr create -f
 ```
 
+See also:
+
+- https://github.com/kubernetes-sigs/controller-runtime/releases/tag/v0.15.0
+
 ### Upgrade from kubebuilder v3.11.0 to v3.11.1
 
 See the diff from
