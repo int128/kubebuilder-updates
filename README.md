@@ -7,6 +7,26 @@ It is continuously updated by Renovate and GitHub Actions.
 
 You can upgrade your code using the patches in this repository.
 
+### Upgrade from kubebuilder v3.12.0 to v3.13.0
+
+To apply the patch of https://github.com/int128/kubebuilder-updates/pull/66/commits/5bb7ed877d129a4afc28136a0a64d5067753ba83,
+
+```sh
+# fetch the diff
+git fetch https://github.com/int128/kubebuilder-updates 5bb7ed877d129a4afc28136a0a64d5067753ba83
+
+# apply the patch
+git checkout -b upgrade-kubebuilder-v3.13.0
+git cherry-pick 5bb7ed877d129a4afc28136a0a64d5067753ba83
+```
+
+You may need to resolve conflicts.
+
+```sh
+git commit -m 'Upgrade from kubebuilder v3.12.0 to v3.13.0'
+gh pr create -f
+```
+
 ### Upgrade from kubebuilder v3.11.1 to v3.12.0
 
 To apply the patch of https://github.com/int128/kubebuilder-updates/pull/56/commits/e503579de20924f51d2d5970346044cf29e43ab7,
@@ -27,10 +47,6 @@ git commit -m 'Upgrade from kubebuilder v3.11.1 to v3.12.0'
 gh pr create -f
 ```
 
-See also:
-
-- https://github.com/kubernetes-sigs/controller-runtime/releases/tag/v0.15.0
-
 ### Upgrade from kubebuilder v3.11.0 to v3.11.1
 
 See the diff from
@@ -48,6 +64,8 @@ git cherry-pick 8eeb003e4d95440ff42b2df7c15b136023d5ec25
 ```
 
 You may need to resolve conflicts.
+
+See also the breaking changes from https://github.com/kubernetes-sigs/controller-runtime/releases/tag/v0.15.0.
 
 ```
 git commit -m 'Upgrade from kubebuilder v3.11.0 to v3.11.1'
