@@ -42,6 +42,7 @@ jobs:
             e2e_test \
             Makefile \
             Dockerfile \
+            .golangci.yml \
             .*ignore \
             go.*
 
