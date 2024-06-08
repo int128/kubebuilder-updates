@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: make -C e2e_test cluster
 
-      - uses: int128/wait-for-workflows-action@v0
+      - uses: int128/wait-for-workflows-action@v1
         with:
           filter-workflow-names: docker
 
