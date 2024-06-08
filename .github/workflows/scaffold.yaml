@@ -38,6 +38,7 @@ jobs:
             internal \
             bin \
             hack \
+            test \
             e2e_test \
             Makefile \
             Dockerfile \
