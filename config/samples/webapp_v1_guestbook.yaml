@@ -2,11 +2,8 @@ apiVersion: webapp.int128.github.io/v1
 kind: Guestbook
 metadata:
   labels:
-    app.kubernetes.io/name: guestbook
-    app.kubernetes.io/instance: guestbook-sample
-    app.kubernetes.io/part-of: kubebuilder-updates
+    app.kubernetes.io/name: kubebuilder-updates
     app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/created-by: kubebuilder-updates
   name: guestbook-sample
 spec:
   # TODO(user): Add fields here
