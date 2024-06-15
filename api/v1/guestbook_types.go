@@ -38,8 +38,8 @@ type GuestbookStatus struct {
 	// Important: Run "make" to regenerate code after modifying this file
 }
 
-//+kubebuilder:object:root=true
-//+kubebuilder:subresource:status
+// +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
 
 // Guestbook is the Schema for the guestbooks API
 type Guestbook struct {
@@ -50,7 +50,7 @@ type Guestbook struct {
 	Status GuestbookStatus `json:"status,omitempty"`
 }
 
-//+kubebuilder:object:root=true
+// +kubebuilder:object:root=true
 
 // GuestbookList contains a list of Guestbook
 type GuestbookList struct {
