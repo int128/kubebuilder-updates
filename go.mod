@@ -2,7 +2,7 @@ module int128.github.io/kubebuilder-updates
 
 go 1.22.0
 
-toolchain go1.22.4
+toolchain go1.22.5
 
 require (
 	github.com/onsi/ginkgo/v2 v2.17.1
