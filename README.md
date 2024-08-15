@@ -23,7 +23,7 @@ git cherry-pick 14a2ab11c9cac933c5a55aaffc4385ad7d76a919
 You may need to resolve conflicts.
 
 ```sh
-git commit -m 'Upgrade from kubebuilder v4.0.0 to v4.1.1'
+git commit -m 'Upgrade from kubebuilder v4.1.0 to v4.1.1'
 gh pr create -f
 ```
 
