@@ -7,6 +7,26 @@ It is continuously updated by Renovate and GitHub Actions.
 
 You can upgrade a project using the patches of this repository.
 
+### Upgrade from kubebuilder v4.1.1 to v4.2.0
+
+To apply the patch of https://github.com/int128/kubebuilder-updates/pull/117/commits/d04a0b20290cd8d43273f33c4c4eb0e12ff3e995,
+
+```sh
+# Fetch the diff
+git fetch https://github.com/int128/kubebuilder-updates d04a0b20290cd8d43273f33c4c4eb0e12ff3e995
+
+# Apply the patch
+git checkout -b upgrade-kubebuilder-v4.2.0
+git cherry-pick d04a0b20290cd8d43273f33c4c4eb0e12ff3e995
+```
+
+You may need to resolve conflicts.
+
+```sh
+git commit -m 'Upgrade from kubebuilder v4.1.1 to v4.2.0'
+gh pr create -f
+```
+
 ### Upgrade from kubebuilder v4.1.0 to v4.1.1
 
 To apply the patch of https://github.com/int128/kubebuilder-updates/pull/110/commits/14a2ab11c9cac933c5a55aaffc4385ad7d76a919,
