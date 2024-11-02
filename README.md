@@ -7,7 +7,7 @@ It is continuously updated by Renovate and GitHub Actions.
 
 You can upgrade a project using the patches of this repository.
 
-<!-- CHANGELOG -->
+<!-- SECTION -->
 
 ### Upgrade from kubebuilder v4.1.1 to v4.2.0
 
