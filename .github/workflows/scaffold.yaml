@@ -14,7 +14,7 @@ on:
       - .kubebuilder-version
 
 jobs:
-  create:
+  project:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -65,6 +65,7 @@ jobs:
       - uses: int128/update-generated-files-action@757376506709ed3d87f14a80ca28a98736d52236 # v2.55.0
 
   doc:
+    needs: project
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
