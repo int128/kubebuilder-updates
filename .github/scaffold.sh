@@ -46,7 +46,8 @@ git commit -m "Update kubebuilder from ${old_version} to ${new_version}"
 head_sha="$(git rev-parse HEAD)"
 
 # Generate the section
-read -r -d '' document_section <<EOF
+sed -i '' "/<!-- UPDATE_SECTIONS -->/a\\
+
 ### Update kubebuilder from ${old_version} to ${new_version}
 
 To apply the patch of https://github.com/int128/kubebuilder-updates/pull/${PULL_NUMBER}/commits/${head_sha},
@@ -66,9 +67,5 @@ You may need to resolve conflicts.
 git commit -m 'Update kubebuilder from ${old_version} to ${new_version}'
 gh pr create -f
 \`\`\`
-EOF
 
-# Prepend the section
-sed -i '' "/<!-- UPDATE_SECTIONS -->/a\\
-$document_section
 " README.md
