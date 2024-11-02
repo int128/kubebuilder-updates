@@ -9,6 +9,7 @@ You can upgrade a project using the patches of this repository.
 
 <!-- SECTION -->
 
+<!-- kubebuilder v4.2.0 -->
 ### Upgrade from kubebuilder v4.1.1 to v4.2.0
 
 To apply the patch of https://github.com/int128/kubebuilder-updates/pull/117/commits/d04a0b20290cd8d43273f33c4c4eb0e12ff3e995,
