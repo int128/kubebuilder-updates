@@ -14,7 +14,7 @@ on:
       - .kubebuilder-version
 
 jobs:
-  create:
+  project:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -62,4 +62,16 @@ jobs:
       - run: rm -vfr .github
       - run: git checkout -- e2e_test .github
 
+      - uses: int128/update-generated-files-action@757376506709ed3d87f14a80ca28a98736d52236 # v2.55.0
+
+  doc:
+    needs: project
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - run: bash .github/generate-doc.sh
       - uses: int128/update-generated-files-action@757376506709ed3d87f14a80ca28a98736d52236 # v2.55.0
