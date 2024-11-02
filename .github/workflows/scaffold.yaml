@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - .github/workflows/scaffold.yaml
+      - .github/generate-*.sh
       - .kubebuilder-version
   push:
     branches:
