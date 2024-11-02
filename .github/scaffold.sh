@@ -2,7 +2,10 @@
 set -eux -o pipefail
 
 : "${PULL_NUMBER}"
-old_version="$(git show HEAD:.kubebuilder-version)"
+: "${GITHUB_BASE_REF}"
+
+git fetch origin --depth=1 "${GITHUB_BASE_REF}:${GITHUB_BASE_REF}"
+old_version="$(git show "${GITHUB_BASE_REF}:.kubebuilder-version")"
 new_version="$(cat .kubebuilder-version)"
 
 # Install kubebuilder
@@ -46,7 +49,7 @@ git commit -m "Update kubebuilder from ${old_version} to ${new_version}"
 head_sha="$(git rev-parse HEAD)"
 
 # Generate the section
-sed -i '' "/<!-- UPDATE_SECTIONS -->/a\\
+cat >> README.md <<EOF
 
 ### Update kubebuilder from ${old_version} to ${new_version}
 
@@ -68,4 +71,4 @@ git commit -m 'Update kubebuilder from ${old_version} to ${new_version}'
 gh pr create -f
 \`\`\`
 
-" README.md
+EOF
