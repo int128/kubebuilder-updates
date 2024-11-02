@@ -11,10 +11,12 @@
     "regex",
     "github-actions",
   ],
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["^\\.github/workflows/.*\\.ya?ml$"],
-      "matchStrings": ['KUBEBUILDER_VERSION: (?<currentValue>.*)\\n'],
+      "customType": "regex",
+      "description": "Update .kubebuilder-version",
+      "fileMatch": ["^\\.kubebuilder-version$"],
+      "matchStrings": ["(?<currentValue>.*)"],
       "depNameTemplate": "kubernetes-sigs/kubebuilder",
       "datasourceTemplate": "github-releases",
     },

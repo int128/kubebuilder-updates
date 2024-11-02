@@ -5,14 +5,13 @@ on:
   pull_request:
     paths:
       - .github/workflows/scaffold.yaml
+      - .kubebuilder-version
   push:
     branches:
       - main
     paths:
       - .github/workflows/scaffold.yaml
-
-env:
-  KUBEBUILDER_VERSION: v4.2.0
+      - .kubebuilder-version
 
 jobs:
   create:
@@ -28,9 +27,12 @@ jobs:
           go-version-file: go.mod
           cache-dependency-path: go.sum
 
-      - run: |
-          curl -L -o kubebuilder https://github.com/kubernetes-sigs/kubebuilder/releases/download/${KUBEBUILDER_VERSION}/kubebuilder_$(go env GOOS)_$(go env GOARCH)
-          chmod +x kubebuilder && mv kubebuilder /usr/local/bin/
+      - id: kubebuilder-version
+        run: echo "value=$(cat .kubebuilder-version)" >> "$GITHUB_OUTPUT"
+      - run: curl -sfL -o kubebuilder "https://github.com/kubernetes-sigs/kubebuilder/releases/download/${KUBEBUILDER_VERSION}/kubebuilder_$(go env GOOS)_$(go env GOARCH)"
+        env:
+          KUBEBUILDER_VERSION: ${{ steps.kubebuilder-version.outputs.value }}
+      - run: chmod +x kubebuilder && mv kubebuilder /usr/local/bin/
 
       - name: Remove old files
         run: |
