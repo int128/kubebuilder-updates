@@ -9,6 +9,27 @@ You can upgrade a project using the patches of this repository.
 
 <!-- SECTION -->
 
+<!-- kubebuilder v4.3.0 -->
+### Update kubebuilder from v4.2.0 to v4.3.0
+
+To apply the patch of https://github.com/int128/kubebuilder-updates/pull/139/commits/c180b58159b72305f12ad937ca3e4282f4ca7379,
+
+```sh
+# Fetch the diff
+git fetch https://github.com/int128/kubebuilder-updates c180b58159b72305f12ad937ca3e4282f4ca7379
+
+# Apply the patch
+git checkout -b update-kubebuilder-v4.3.0
+git cherry-pick c180b58159b72305f12ad937ca3e4282f4ca7379
+```
+
+You may need to resolve conflicts.
+
+```sh
+git commit -m 'Update kubebuilder from v4.2.0 to v4.3.0'
+gh pr create -f
+```
+
 <!-- kubebuilder v4.2.0 -->
 ### Upgrade from kubebuilder v4.1.1 to v4.2.0
 
