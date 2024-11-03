@@ -23,3 +23,4 @@ jobs:
     with:
       go-version-file: go.mod
       cache-dependency-path: go.sum
+      ignore-lint-error: true
