@@ -58,5 +58,6 @@ func (r *GuestbookReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 func (r *GuestbookReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&webappv1.Guestbook{}).
+		Named("guestbook").
 		Complete(r)
 }
