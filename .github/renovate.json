@@ -9,7 +9,9 @@
   ],
   "packageRules": [
     {
-      "matchFileNames": ["**/*"],
+      "matchFileNames": [
+        "**/*"
+      ],
       "enabled": false
     },
     {
@@ -20,14 +22,18 @@
         ".kubebuilder-version"
       ],
       "enabled": true
-    },
+    }
   ],
   "customManagers": [
     {
       "customType": "regex",
       "description": "Update .kubebuilder-version",
-      "fileMatch": ["^\\.kubebuilder-version$"],
-      "matchStrings": ["^(?<currentValue>.*)$"],
+      "fileMatch": [
+        "^\\.kubebuilder-version$"
+      ],
+      "matchStrings": [
+        "^(?<currentValue>.*)$"
+      ],
       "depNameTemplate": "kubernetes-sigs/kubebuilder",
       "datasourceTemplate": "github-releases"
     }
