@@ -7,22 +7,10 @@
     "github>int128/go-renovate-config:kubebuilder#v1.7.0",
     "helpers:pinGitHubActionDigests"
   ],
-  "packageRules": [
-    {
-      "matchFileNames": [
-        "**/*"
-      ],
-      "enabled": false
-    },
-    {
-      "description": "Update non-generated files only",
-      "matchFileNames": [
-        ".github/**",
-        "e2e_test/**",
-        ".kubebuilder-version"
-      ],
-      "enabled": true
-    }
+  "includePaths": [
+    ".github/**",
+    "e2e_test/**",
+    ".kubebuilder-version"
   ],
   "customManagers": [
     {
