@@ -5,21 +5,25 @@
     "github>int128/go-renovate-config#v1.7.0",
     "github>int128/go-renovate-config:github-actions#v1.7.0",
     "github>int128/go-renovate-config:kubebuilder#v1.7.0",
-    "helpers:pinGitHubActionDigests",
+    "helpers:pinGitHubActionDigests"
   ],
-  // do not update the scaffold output
-  "enabledManagers": [
-    "custom.regex",
-    "github-actions",
+  "includePaths": [
+    ".github/**",
+    "e2e_test/**",
+    ".kubebuilder-version"
   ],
   "customManagers": [
     {
       "customType": "regex",
       "description": "Update .kubebuilder-version",
-      "fileMatch": ["^\\.kubebuilder-version$"],
-      "matchStrings": ["^(?<currentValue>.*)$"],
+      "fileMatch": [
+        "^\\.kubebuilder-version$"
+      ],
+      "matchStrings": [
+        "^(?<currentValue>.*)$"
+      ],
       "depNameTemplate": "kubernetes-sigs/kubebuilder",
-      "datasourceTemplate": "github-releases",
-    },
-  ],
+      "datasourceTemplate": "github-releases"
+    }
+  ]
 }
