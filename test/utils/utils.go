@@ -1,5 +1,5 @@
 /*
-Copyright 2024.
+Copyright 2025.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -92,7 +92,7 @@ func IsPrometheusCRDsInstalled() bool {
 	if err != nil {
 		return false
 	}
-	crdList := GetNonEmptyLines(string(output))
+	crdList := GetNonEmptyLines(output)
 	for _, crd := range prometheusCRDs {
 		for _, line := range crdList {
 			if strings.Contains(line, crd) {
@@ -153,7 +153,7 @@ func IsCertManagerCRDsInstalled() bool {
 	}
 
 	// Check if any of the Cert Manager CRDs are present
-	crdList := GetNonEmptyLines(string(output))
+	crdList := GetNonEmptyLines(output)
 	for _, crd := range certManagerCRDs {
 		for _, line := range crdList {
 			if strings.Contains(line, crd) {
