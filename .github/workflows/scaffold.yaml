@@ -28,7 +28,7 @@ jobs:
           go-version-file: go.mod
           cache-dependency-path: go.sum
       - run: bash .github/generate-project.sh
-      - uses: int128/update-generated-files-action@65b9a7ae3ededc5679d78343f58fbebcf1ebd785 # v2.57.0
+      - uses: int128/update-generated-files-action@87971327cee864b0597f0e17895ef066d73a149a # v2.58.0
 
   doc:
     needs: project
@@ -40,7 +40,7 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - run: bash .github/generate-doc.sh
-      - uses: int128/update-generated-files-action@65b9a7ae3ededc5679d78343f58fbebcf1ebd785 # v2.57.0
+      - uses: int128/update-generated-files-action@87971327cee864b0597f0e17895ef066d73a149a # v2.58.0
 
   release:
     needs: project
