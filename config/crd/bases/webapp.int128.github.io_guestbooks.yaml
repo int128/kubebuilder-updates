@@ -17,7 +17,7 @@ spec:
   - name: v1
     schema:
       openAPIV3Schema:
-        description: Guestbook is the Schema for the guestbooks API.
+        description: Guestbook is the Schema for the guestbooks API
         properties:
           apiVersion:
             description: |-
@@ -37,16 +37,18 @@ spec:
           metadata:
             type: object
           spec:
-            description: GuestbookSpec defines the desired state of Guestbook.
+            description: spec defines the desired state of Guestbook
             properties:
               foo:
-                description: Foo is an example field of Guestbook. Edit guestbook_types.go
+                description: foo is an example field of Guestbook. Edit guestbook_types.go
                   to remove/update
                 type: string
             type: object
           status:
-            description: GuestbookStatus defines the observed state of Guestbook.
+            description: status defines the observed state of Guestbook
             type: object
+        required:
+        - spec
         type: object
     served: true
     storage: true

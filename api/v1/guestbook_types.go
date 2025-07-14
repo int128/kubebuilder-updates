@@ -23,13 +23,16 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// GuestbookSpec defines the desired state of Guestbook.
+// GuestbookSpec defines the desired state of Guestbook
 type GuestbookSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	// The following markers will use OpenAPI v3 schema to validate the value
+	// More info: https://book.kubebuilder.io/reference/markers/crd-validation.html
 
-	// Foo is an example field of Guestbook. Edit guestbook_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// foo is an example field of Guestbook. Edit guestbook_types.go to remove/update
+	// +optional
+	Foo *string `json:"foo,omitempty"`
 }
 
 // GuestbookStatus defines the observed state of Guestbook.
@@ -41,18 +44,26 @@ type GuestbookStatus struct {
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
 
-// Guestbook is the Schema for the guestbooks API.
+// Guestbook is the Schema for the guestbooks API
 type Guestbook struct {
-	metav1.TypeMeta   `json:",inline"`
-	metav1.ObjectMeta `json:"metadata,omitempty"`
+	metav1.TypeMeta `json:",inline"`
 
-	Spec   GuestbookSpec   `json:"spec,omitempty"`
-	Status GuestbookStatus `json:"status,omitempty"`
+	// metadata is a standard object metadata
+	// +optional
+	metav1.ObjectMeta `json:"metadata,omitempty,omitzero"`
+
+	// spec defines the desired state of Guestbook
+	// +required
+	Spec GuestbookSpec `json:"spec"`
+
+	// status defines the observed state of Guestbook
+	// +optional
+	Status GuestbookStatus `json:"status,omitempty,omitzero"`
 }
 
 // +kubebuilder:object:root=true
 
-// GuestbookList contains a list of Guestbook.
+// GuestbookList contains a list of Guestbook
 type GuestbookList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
