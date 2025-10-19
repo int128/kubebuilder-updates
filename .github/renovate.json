@@ -16,8 +16,8 @@
     {
       "customType": "regex",
       "description": "Update .kubebuilder-version",
-      "fileMatch": [
-        "^\\.kubebuilder-version$"
+      "managerFilePatterns": [
+        ".kubebuilder-version"
       ],
       "matchStrings": [
         "^(?<currentValue>.*)$"
