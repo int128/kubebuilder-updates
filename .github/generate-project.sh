@@ -3,6 +3,9 @@ set -eux -o pipefail
 
 : "${GITHUB_BASE_REF}"
 
+# Download the newer Go version when go.mod is changed on kubebuilder init.
+export GOTOOLCHAIN=auto
+
 install_kubebuilder () {
   local kubebuilder_version="$(cat .kubebuilder-version)"
   curl -sfL -o kubebuilder "https://github.com/kubernetes-sigs/kubebuilder/releases/download/${kubebuilder_version}/kubebuilder_$(go env GOOS)_$(go env GOARCH)"
