@@ -8,7 +8,9 @@ on:
       - Makefile
       - go.*
       - api/**
+      - cmd/**
       - internal/**
+      - config/**
       - e2e_test/**
       - '!**/*_test.go'
       - '!**/*.md'
@@ -23,7 +25,9 @@ on:
       - Makefile
       - go.*
       - api/**
+      - cmd/**
       - internal/**
+      - config/**
       - e2e_test/**
       - '!**/*_test.go'
       - '!**/*.md'
