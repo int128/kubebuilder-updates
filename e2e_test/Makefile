@@ -19,7 +19,8 @@ deploy:
 	kustomize build controller | kubectl apply -f -
 	kubectl -n $(PROJECT_NAME)-system rollout status deployment $(PROJECT_NAME)-controller-manager
 	kubectl -n $(PROJECT_NAME)-system get deployment
-	kustomize build ../config/samples | kubectl apply -f -
+	# Workaround for the error of "spec: Required value"
+	kustomize build ../config/samples | sed -e 's/^spec: null/spec: {}/' | kubectl apply -f -
 
 logs-controller:
 	-kubectl -n $(PROJECT_NAME)-system logs -l control-plane=controller-manager --all-containers --tail=-1
