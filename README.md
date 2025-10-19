@@ -9,6 +9,27 @@ You can update your Kubebuilder project using the patches of this repository.
 
 <!-- SECTION -->
 
+<!-- kubebuilder v4.7.0 -->
+### Update kubebuilder from v4.6.0 to v4.7.0
+
+To apply the patch of https://github.com/int128/kubebuilder-updates/pull/201/commits/8623ca06f34dfd80d3f9a8e634f539c5e044d8c7,
+
+```sh
+# Fetch the diff
+git fetch https://github.com/int128/kubebuilder-updates 8623ca06f34dfd80d3f9a8e634f539c5e044d8c7
+
+# Apply the patch
+git checkout -b update-kubebuilder-v4.7.0
+git cherry-pick 8623ca06f34dfd80d3f9a8e634f539c5e044d8c7
+```
+
+You may need to resolve conflicts.
+
+```sh
+git commit -m 'Update kubebuilder from v4.6.0 to v4.7.0'
+gh pr create -f
+```
+
 <!-- kubebuilder v4.6.0 -->
 ### Update kubebuilder from v4.5.2 to v4.6.0
 
