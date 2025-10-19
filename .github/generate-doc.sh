@@ -26,7 +26,7 @@ generate_readme () {
   fi
 
   local pull_number="$(echo "${GITHUB_REF}" | cut -d/ -f3)"
-  export README_SECTION="
+  export CHANGELOG_SECTION="
 <!-- kubebuilder ${head_version} -->
 ### Update kubebuilder from ${base_version} to ${head_version}
 
@@ -49,8 +49,8 @@ gh pr create -f
 \`\`\`
 "
 
-  perl -i -ne 'print; if ($_ =~ /<!-- SECTION -->/) { print $ENV{"README_SECTION"} }' README.md
-  unset README_SECTION
+  perl -i -ne 'print; if ($_ =~ /<!-- SECTION -->/) { print $ENV{"CHANGELOG_SECTION"} }' CHANGELOG.md
+  unset CHANGELOG_SECTION
 }
 
 exit_if_readme_is_up_to_date

@@ -12,6 +12,7 @@ on:
       - main
     paths:
       - .github/workflows/scaffold.yaml
+      - .github/generate-*.sh
       - .kubebuilder-version
 
 jobs:
