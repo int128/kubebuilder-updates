@@ -23,6 +23,27 @@ git commit -m 'Update kubebuilder from v4.7.0 to v4.7.1'
 gh pr create -f
 ```
 
+<!-- kubebuilder v4.7.1 -->
+### Update kubebuilder from v4.7.0 to v4.7.1
+
+To apply the patch of https://github.com/int128/kubebuilder-updates/pull/215/commits/4743144ca8d0d439d6fc471a87d260b9506c2dfa,
+
+```sh
+# Fetch the diff
+git fetch https://github.com/int128/kubebuilder-updates 4743144ca8d0d439d6fc471a87d260b9506c2dfa
+
+# Apply the patch
+git checkout -b update-kubebuilder-v4.7.1
+git cherry-pick 4743144ca8d0d439d6fc471a87d260b9506c2dfa
+```
+
+You may need to resolve conflicts.
+
+```sh
+git commit -m 'Update kubebuilder from v4.7.0 to v4.7.1'
+gh pr create -f
+```
+
 <!-- kubebuilder v4.7.0 -->
 ### Update kubebuilder from v4.6.0 to v4.7.0
 
