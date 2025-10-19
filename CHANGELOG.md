@@ -2,6 +2,27 @@
 
 <!-- SECTION -->
 
+<!-- kubebuilder v4.9.0 -->
+### Update kubebuilder from v4.8.0 to v4.9.0
+
+To apply the patch of https://github.com/int128/kubebuilder-updates/pull/220/commits/ce0c46791c9a19a6959d37aee2a3cc4beee2f873,
+
+```sh
+# Fetch the diff
+git fetch https://github.com/int128/kubebuilder-updates ce0c46791c9a19a6959d37aee2a3cc4beee2f873
+
+# Apply the patch
+git checkout -b update-kubebuilder-v4.9.0
+git cherry-pick ce0c46791c9a19a6959d37aee2a3cc4beee2f873
+```
+
+You may need to resolve conflicts.
+
+```sh
+git commit -m 'Update kubebuilder from v4.8.0 to v4.9.0'
+gh pr create -f
+```
+
 <!-- kubebuilder v4.8.0 -->
 ### Update kubebuilder from v4.7.1 to v4.8.0
 
