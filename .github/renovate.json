@@ -20,7 +20,7 @@
         ".kubebuilder-version"
       ],
       "matchStrings": [
-        "^(?<currentValue>.*)$"
+        "^(?<currentValue>.+)\n"
       ],
       "depNameTemplate": "kubernetes-sigs/kubebuilder",
       "datasourceTemplate": "github-releases"
