@@ -64,7 +64,7 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           cache-from: ${{ steps.cache.outputs.cache-from }}
           cache-to: ${{ steps.cache.outputs.cache-to }}
-      - uses: int128/docker-build-metadata-action@d61321835e5c186001003fb9cfc71aede8302e80 # v1.3.0
+      - uses: int128/docker-build-metadata-action@ecae9db55a7694efb88b6a535eb07296aa2d1f7c # v1.4.0
         id: build-metadata
         with:
           metadata: ${{ steps.build.outputs.metadata }}
