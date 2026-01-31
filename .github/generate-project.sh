@@ -35,6 +35,7 @@ scaffold_project () {
   kubebuilder init --domain int128.github.io --repo int128.github.io/kubebuilder-updates
   kubebuilder create api --group webapp --version v1 --kind Guestbook --controller --resource
 
+  go version
   make generate manifests
 }
 
