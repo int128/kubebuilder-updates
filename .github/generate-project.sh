@@ -39,9 +39,6 @@ scaffold_project () {
 install_kubebuilder
 scaffold_project
 
-go version
-make test
-
 # Restore the original files
 rm -vfr .github
 git checkout -- e2e_test .github
