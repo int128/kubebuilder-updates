@@ -182,7 +182,7 @@ func main() {
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
-		setupLog.Error(err, "Failed to create controller", "controller", "Guestbook")
+		setupLog.Error(err, "Failed to create controller", "controller", "guestbook")
 		os.Exit(1)
 	}
 	// +kubebuilder:scaffold:builder
