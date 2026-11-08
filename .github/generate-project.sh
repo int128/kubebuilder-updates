@@ -42,7 +42,6 @@ scaffold_project () {
 scaffold_helm_chart () {
   kustomize build config/default > /tmp/install.yaml
   kubebuilder edit --plugins=helm/v2-alpha --output-dir=charts --manifests=/tmp/install.yaml
-  rm -fr dist
 }
 
 install_kubebuilder
