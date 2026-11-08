@@ -39,8 +39,14 @@ scaffold_project () {
   make generate manifests
 }
 
+scaffold_helm_chart () {
+  kubebuilder edit --plugins=helm/v2-alpha --output-dir=charts
+  rm -fr dist
+}
+
 install_kubebuilder
 scaffold_project
+scaffold_helm_chart
 
 # Restore the original files
 rm -vfr .github

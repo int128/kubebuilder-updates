@@ -6,6 +6,10 @@ cliVersion: 4.16.0
 domain: int128.github.io
 layout:
 - go.kubebuilder.io/v4
+plugins:
+  helm.kubebuilder.io/v2-alpha:
+    manifests: dist/install.yaml
+    output: charts
 projectName: kubebuilder-updates
 repo: int128.github.io/kubebuilder-updates
 resources:
