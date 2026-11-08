@@ -8,7 +8,7 @@ layout:
 - go.kubebuilder.io/v4
 plugins:
   helm.kubebuilder.io/v2-alpha:
-    manifests: dist/install.yaml
+    manifests: /tmp/install.yaml
     output: charts
 projectName: kubebuilder-updates
 repo: int128.github.io/kubebuilder-updates
