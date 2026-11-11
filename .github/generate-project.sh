@@ -6,14 +6,6 @@ set -eux -o pipefail
 # Download the newer Go version when go.mod is changed on kubebuilder init.
 export GOTOOLCHAIN=auto
 
-install_kubebuilder () {
-  local kubebuilder_version="$(cat .kubebuilder-version)"
-  curl -sfL -o kubebuilder "https://github.com/kubernetes-sigs/kubebuilder/releases/download/${kubebuilder_version}/kubebuilder_$(go env GOOS)_$(go env GOARCH)"
-  chmod +x kubebuilder
-  mv kubebuilder /usr/local/bin/
-  kubebuilder version
-}
-
 scaffold_project () {
   # Remove the existing files to avoid kubebuilder error
   rm -vfr \
@@ -44,7 +36,6 @@ scaffold_helm_chart () {
   kubebuilder edit --plugins=helm/v2-alpha --output-dir=charts --manifests=/tmp/install.yaml
 }
 
-install_kubebuilder
 scaffold_project
 scaffold_helm_chart
 
