@@ -4,25 +4,11 @@
     "github>int128/renovate-base",
     "github>int128/go-renovate-config#v1.9.0",
     "github>int128/go-renovate-config:kubebuilder#v1.9.0",
+    "github>aquaproj/aqua-renovate-config#2.14.0",
     "helpers:pinGitHubActionDigests"
   ],
   "includePaths": [
     ".github/**",
-    "e2e_test/**",
-    ".kubebuilder-version"
-  ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "description": "Update .kubebuilder-version",
-      "managerFilePatterns": [
-        ".kubebuilder-version"
-      ],
-      "matchStrings": [
-        "^(?<currentValue>.+)\n"
-      ],
-      "depNameTemplate": "kubernetes-sigs/kubebuilder",
-      "datasourceTemplate": "github-releases"
-    }
+    "e2e_test/**"
   ]
 }

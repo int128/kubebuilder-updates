@@ -5,10 +5,12 @@ set -eux -o pipefail
 : "${GITHUB_BASE_REF}"
 : "${GITHUB_HEAD_REF}"
 
-head_version="$(cat .kubebuilder-version)"
+head_version="$(aqua which --version kubebuilder)"
 
 git fetch origin --depth=1 "${GITHUB_BASE_REF}:${GITHUB_BASE_REF}"
-base_version="$(git show "${GITHUB_BASE_REF}:.kubebuilder-version")"
+git checkout "$GITHUB_BASE_REF" -- aqua.yaml
+base_version="$(aqua which --version kubebuilder)"
+git checkout HEAD -- aqua.yaml
 
 exit_if_changelog_is_up_to_date () {
   if grep "<!-- kubebuilder ${head_version} -->" CHANGELOG.md; then
@@ -18,6 +20,9 @@ exit_if_changelog_is_up_to_date () {
 }
 
 generate_changelog () {
+  test -n "$GITHUB_BASE_REF"
+  test -n "$GITHUB_HEAD_REF"
+
   git fetch origin --depth=10 "${GITHUB_HEAD_REF}:${GITHUB_HEAD_REF}"
   local scaffold_commit_sha="$(git log -1 --grep '(scaffold / project)' --format=%H "${GITHUB_BASE_REF}...${GITHUB_HEAD_REF}")"
   if [ -z "${scaffold_commit_sha}" ]; then
