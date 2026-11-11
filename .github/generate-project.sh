@@ -18,6 +18,7 @@ scaffold_project () {
     hack \
     test \
     e2e_test \
+    charts \
     Makefile \
     Dockerfile \
     .golangci.yml \
