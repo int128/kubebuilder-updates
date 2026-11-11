@@ -36,7 +36,6 @@ scaffold_helm_chart () {
   kubebuilder edit --plugins=helm/v2-alpha --output-dir=charts --manifests=/tmp/install.yaml
 }
 
-install_kubebuilder
 scaffold_project
 scaffold_helm_chart
 
