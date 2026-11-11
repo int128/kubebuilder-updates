@@ -3,7 +3,7 @@ set -eux -o pipefail
 
 : "$IMAGE_URI"
 
-yq -i '.manager.image.repository = "$IMAGE_URI"' charts/chart/values.yaml
+yq -i '.manager.image.repository = env(IMAGE_URI)' charts/chart/values.yaml
 
 kubebuilder_version="$(aqua which --version kubebuilder)"
 
