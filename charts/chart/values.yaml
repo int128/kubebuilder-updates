@@ -16,10 +16,7 @@ manager:
   replicas: 1
 
   image:
-    repository: controller
-    ## Image tag (defaults to Chart.appVersion if not set)
-    ##
-    # tag: ""
+    repository: __IMAGE_URI__
     pullPolicy: IfNotPresent
 
   ## Arguments

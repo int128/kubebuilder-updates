@@ -93,7 +93,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   chart:
-    # needs: container
+    needs: container
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -108,6 +108,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: bash .github/release-helm-chart.sh
+        env:
+          IMAGE_URI: ${{ needs.container.outputs.image-uri }}
 
   e2e-test:
     runs-on: ubuntu-latest
