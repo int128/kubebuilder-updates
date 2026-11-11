@@ -32,6 +32,9 @@ on:
       - '!**/*_test.go'
       - '!**/*.md'
 
+defaults:
+  run:
+    shell: bash
 jobs:
   container:
     runs-on: ubuntu-latest
@@ -91,6 +94,25 @@ jobs:
         run: gh release upload "$GITHUB_REF_NAME" "${RUNNER_TEMP}/${GITHUB_REPOSITORY##*/}.yaml" --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  chart:
+    needs: container
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: aquaproj/aqua-installer@611554c6f0137ba41c8dd15aca8bee82504ea461 # v4.1.1
+        with:
+          aqua_version: v2.65.2
+      - run: helm registry login ghcr.io -u "$GITHUB_ACTOR" --password-stdin <<< "$GITHUB_TOKEN"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: bash .github/release-helm-chart.sh
+        env:
+          IMAGE_URI: ${{ needs.container.outputs.image-uri }}
 
   e2e-test:
     runs-on: ubuntu-latest
